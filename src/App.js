@@ -6,13 +6,15 @@ import { Box, Spacer } from './utils'
 
 function App() {
     return (
-        <Box row>
-            <Categories />
-            <Spacer size={10} />
-            <NewsCard />
-            <Spacer size={10} />
+        <Box center>
+            <Box width={670}>
+                <Categories />
+                <Spacer size={10} />
+                <NewsCard />
+                <Spacer size={10} />
 
-            <Search />
+                <Search />
+            </Box>
         </Box>
     )
 }
