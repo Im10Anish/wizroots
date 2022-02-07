@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import GlobalStyle from './styles/fontStyles'
+import { Grommet } from 'grommet'
 
 ReactDOM.render(
     <React.StrictMode>
-        <GlobalStyle />
-        <App />
+        <Grommet full>
+            <GlobalStyle />
+            <App />
+        </Grommet>
     </React.StrictMode>,
     document.getElementById('root')
 )

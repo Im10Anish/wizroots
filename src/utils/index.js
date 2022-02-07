@@ -17,7 +17,7 @@ const Spacer = styled.div((p) => ({
 }))
 
 const Title = styled.h2((p) => ({
-    fontSize: '40px',
+    fontSize: p.small ? '24px' : '40px',
     color: '#000000',
 }))
 
@@ -37,4 +37,24 @@ const Pills = styled.label((p) => ({
     }),
 }))
 
-export { Box, Spacer, Title, Pills }
+const Button = styled.button((p) => ({
+    background: p.disabled ? '#EAEAEA' : p.secondary ? '#EAEAEA' : '#000000',
+    color: p.secondary ? '#000000' : '#ffffff',
+    border: 'none',
+    padding: '6px 20px',
+    borderRadius: '20px',
+    width: 'fit-content',
+    fontWeight: 'bold',
+}))
+
+const Input = styled.input`
+    width: inherit;
+    border: none;
+    padding: 12px 0px;
+    border-bottom: 1px solid #000000;
+    &:focus {
+        outline: none;
+    }
+`
+
+export { Box, Spacer, Title, Pills, Button, Input }
