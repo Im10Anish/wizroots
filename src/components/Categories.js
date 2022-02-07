@@ -73,8 +73,10 @@ const Categories = () => {
                     </Box>
                 </Layer>
             )}
-            <Spacer size={40} />
+            <Spacer size={20} />
             <Title>News Today</Title>
+            <Spacer size={20} />
+
             <Box row>
                 {category.map((category, index) => {
                     return (

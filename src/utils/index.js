@@ -20,6 +20,27 @@ const Title = styled.h2((p) => ({
     fontSize: p.small ? '24px' : '40px',
     color: '#000000',
 }))
+const SmallText = styled.h2((p) => ({
+    fontSize: '16px',
+    color: '#212121',
+    lineHeight: '21px',
+    padding: '0px',
+    margin: '0px',
+}))
+
+const Label = styled.p((p) => ({
+    fontSize: '12px',
+    color: '#989898',
+    padding: '0px',
+    margin: '4px 0px',
+}))
+const Paragraph = styled.p((p) => ({
+    fontSize: '14px',
+    color: '#393939',
+    padding: '0px',
+    margin: '0px',
+    lineHeight: '19px',
+}))
 
 const Pills = styled.label((p) => ({
     background: '#EAEAEA',
@@ -56,5 +77,27 @@ const Input = styled.input`
         outline: none;
     }
 `
+const Card = styled.div`
+    background: #ffffff;
+    padding: 26px 30px;
+    box-shadow: 0px 0px 16px #00000010;
+`
+const Image = styled.img`
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+`
 
-export { Box, Spacer, Title, Pills, Button, Input }
+export {
+    Box,
+    Spacer,
+    Title,
+    Pills,
+    Button,
+    Input,
+    Card,
+    SmallText,
+    Label,
+    Paragraph,
+    Image,
+}

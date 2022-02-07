@@ -9,11 +9,11 @@ function App() {
         <Box center>
             <Box width={670}>
                 <Categories />
-                <Spacer size={10} />
-                <NewsCard />
-                <Spacer size={10} />
+                <Spacer size={20} />
 
                 <Search />
+                <Spacer size={14} />
+                <NewsCard />
             </Box>
         </Box>
     )
