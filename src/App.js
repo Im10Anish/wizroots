@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Categories from './components/Categories'
 import NewsCard from './components/NewsCard'
 import Search from './components/Search'
 import { Box, Spacer } from './utils'
 
+import { getNewsEndPoint, getApiKey } from './config'
+
 function App() {
+    const { data, setData } = useState([])
+    const onSearch = (query) => {}
+
     return (
         <Box center>
-            <Box width={670}>
+            <Box style={{ width: '90%', maxWidth: '670px' }}>
                 <Categories />
                 <Spacer size={20} />
 
-                <Search />
+                <Search onSearch={onSearch} />
                 <Spacer size={14} />
                 <NewsCard />
             </Box>

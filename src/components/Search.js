@@ -2,7 +2,7 @@ import React from 'react'
 import { Search as SearchIcon } from 'grommet-icons'
 import { TextInput } from 'grommet'
 
-const Search = () => {
+const Search = ({ onSearch }) => {
     return (
         <>
             <TextInput
@@ -16,6 +16,7 @@ const Search = () => {
                     fontWeight: 400,
                     border: '1px solid #E5E5E5',
                 }}
+                onChange={(e) => onSearch(e.target.value)}
             />
         </>
     )

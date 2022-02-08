@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+const MediaQueries = {
+    isMobile: '(min-width: 320px) and (max-width: 767px)',
+    isTablet: '(min-width: 768px) and (max-width: 991px)',
+    isDesktop: '(min-width: 1024px)',
+}
+
 const Box = styled.div((p) => ({
     display: 'flex',
     width: p.width,
@@ -20,27 +26,42 @@ const Title = styled.h2((p) => ({
     fontSize: p.small ? '24px' : '40px',
     color: '#000000',
 }))
-const SmallText = styled.h2((p) => ({
-    fontSize: '16px',
-    color: '#212121',
-    lineHeight: '21px',
-    padding: '0px',
-    margin: '0px',
-}))
+const SmallText = styled.h2`
+    font-size: 16px;
+    color: #212121;
+    line-height: 21px;
+    padding: 0px;
+    margin: 0px;
 
-const Label = styled.p((p) => ({
-    fontSize: '12px',
-    color: '#989898',
-    padding: '0px',
-    margin: '4px 0px',
-}))
-const Paragraph = styled.p((p) => ({
-    fontSize: '14px',
-    color: '#393939',
-    padding: '0px',
-    margin: '0px',
-    lineHeight: '19px',
-}))
+    @media ${MediaQueries.isMobile} {
+        font-size: 14px;
+        line-height: 18px;
+    }
+`
+
+const Label = styled.p`
+    font-size: 12px;
+    color: #989898;
+    padding: 0px;
+    margin: 4px 0px;
+
+    @media ${MediaQueries.isMobile} {
+        font-size: 10px;
+    }
+`
+
+const Paragraph = styled.p`
+    font-size: 14px;
+    color: #393939;
+    padding: 0px;
+    margin: 0px;
+    line-height: 19px;
+
+    @media ${MediaQueries.isMobile} {
+        font-size: 12px;
+        line-height: 16px;
+    }
+`
 
 const Pills = styled.label((p) => ({
     background: '#EAEAEA',
@@ -86,6 +107,9 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     border-radius: 9px;
+    @media ${MediaQueries.isMobile} {
+        height: 75%;
+    }
 `
 
 export {
@@ -100,4 +124,5 @@ export {
     Label,
     Paragraph,
     Image,
+    MediaQueries,
 }
