@@ -1,29 +1,15 @@
 import React, { useState } from 'react'
 import { Layer } from 'grommet'
 
-import { Box, Spacer, Title, Pills, Button, Input } from '../utils'
+import { Box, ModalBox, Spacer, Title, Pills, Button, Input } from '../utils'
 
-const Categories = () => {
-    const [category, setCategory] = useState([
-        { name: 'TechCrunch', api: '', isActive: true },
-    ])
+const Categories = ({ category, onChange, onSelected }) => {
     const [newCategory, setNewCategory] = useState('')
     const [newAPI, setNewAPI] = useState('')
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
 
-    const onSlected = (index) => {
-        const updatedCategory = category.map((cat) => ({
-            ...cat,
-            isActive: !cat.isActive,
-        }))
-        setCategory(updatedCategory)
-    }
-
-    const addNewCategory = (newCategory) => {
-        setCategory([...category, newCategory])
-    }
     return (
         <>
             {open && (
@@ -33,11 +19,7 @@ const Categories = () => {
                     onClickOutside={handleClose}
                     onEsc={handleClose}
                 >
-                    <Box
-                        padding={64}
-                        width={690}
-                        style={{ background: '#fff' }}
-                    >
+                    <ModalBox>
                         <Title small>Add Category</Title>
                         <Spacer size={40} />
 
@@ -60,7 +42,7 @@ const Categories = () => {
                         <Button
                             disabled={!(newCategory && newAPI)}
                             onClick={() => {
-                                addNewCategory({
+                                onChange({
                                     name: newCategory,
                                     api: newAPI,
                                     isActive: false,
@@ -70,7 +52,7 @@ const Categories = () => {
                         >
                             + Add
                         </Button>
-                    </Box>
+                    </ModalBox>
                 </Layer>
             )}
             <Spacer size={20} />
@@ -84,7 +66,7 @@ const Categories = () => {
                             <Pills
                                 active={category.isActive}
                                 key={index}
-                                onClick={() => onSlected(index)}
+                                onClick={() => onSelected(index)}
                             >
                                 {category.name}
                             </Pills>

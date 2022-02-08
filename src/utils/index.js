@@ -15,6 +15,15 @@ const Box = styled.div((p) => ({
     justifyContent: p.justifyContent || (p.center && 'center'),
     alignItems: p.alignItems || (p.center && 'center'),
 }))
+const ModalBox = styled(Box)`
+    padding: 64px;
+    width: 690px;
+    background: #fff;
+    @media ${MediaQueries.isMobile} {
+        padding: 20px;
+        width: 320px;
+    }
+`
 
 const Spacer = styled.div((p) => ({
     minHeight: !p.horizontal && p.size,
@@ -125,4 +134,5 @@ export {
     Paragraph,
     Image,
     MediaQueries,
+    ModalBox,
 }
