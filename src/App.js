@@ -18,9 +18,17 @@ function App() {
         },
     ])
     const [data, setData] = useState([])
+
+    // Add new category to the list and make isActive false for previous items
     const addNewCategory = (newCategory) => {
-        setCategory([...category, newCategory])
+        const previousCategory = category.map((cat, _index) => ({
+            ...cat,
+            isActive: false,
+        }))
+        setCategory([...previousCategory, newCategory])
     }
+
+    // load data with default category ie. technology
     useEffect(() => {
         async function fetchNewsWithTag() {
             const activeTag = category.filter((cat) => cat.isActive === true)
@@ -36,6 +44,7 @@ function App() {
         fetchNewsWithTag()
     }, [category])
 
+    // Search the query gets from the user-input
     const fetchNews = async (query) => {
         const { data } = await axios.get(`${getNewsEndPoint()}/everything`, {
             params: {
@@ -46,10 +55,12 @@ function App() {
         setData(getIn(data, ['articles']) || [])
     }
 
+    // using debounce to avoid unnecessary calls
     const onSearch = useDebouncedCallback((query) => {
         fetchNews(query)
     }, 800)
 
+    // Make the selected tab active
     const onSelected = (index) => {
         const updatedCategory = category.map((cat, _index) => ({
             ...cat,

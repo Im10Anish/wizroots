@@ -45,7 +45,7 @@ const Categories = ({ category, onChange, onSelected }) => {
                                 onChange({
                                     name: newCategory,
                                     api: newAPI,
-                                    isActive: false,
+                                    isActive: true,
                                 })
                                 handleClose()
                             }}
